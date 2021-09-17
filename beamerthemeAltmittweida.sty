@@ -1,0 +1,58 @@
+\mode<presentation>
+% \ProvidesPackage{sicim-pres}[presentation template for SICIM]
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz} 
+\renewcommand{\familydefault}{\sfdefault}
+\RequirePackage[scaled=0.92]{helvet}
+
+\definecolor{hsmw}{RGB}{00,105,179}
+\setbeamercolor{title}{fg=hsmw}
+\setbeamercolor{frametitle}{fg=hsmw}
+\setbeamertemplate{footline}{\hspace{15pt}\vspace{12pt}\color{hsmw}\insertframenumber\hspace{9pt}\@author}
+
+\renewcommand*{\title}[1]{\gdef\@title{#1}}
+\renewcommand*{\@title}{title}
+\newcommand*{\stitle}[1]{\gdef\@stitle{#1}}
+\newcommand*{\@stitle}{kind of a subtitle}
+\renewcommand*{\author}[1]{\gdef\@author{#1}}
+\renewcommand*{\@author}{author}
+\newcommand*{\group}[1]{\gdef\@group{#1}}
+\newcommand*{\@group}{group}
+
+% Logo
+\addtobeamertemplate{frametitle}{}{%
+\begin{tikzpicture}[remember picture,overlay,at=(current page.south east),anchor=south east]
+  \node[at=(current page.south east),inner sep=12pt,yshift=-6pt,label={[font=\tiny, xshift=4pt, yshift=2pt]180:SICIM},label={[font=\tiny, xshift=4pt, yshift=-3.5pt]180:\@group},label={[font=\small, xshift=11pt, yshift=-0pt]180:|}] {
+   \includegraphics[height=0.06\paperheight]{hsmw-logo.pdf}};
+\end{tikzpicture}}
+
+\newcommand{\Romannumeral}[1]
+    {\MakeUppercase{\romannumeral #1}}
+
+\renewcommand*{\titlepage}{%
+\begin{frame}[noframenumbering,plain]
+\thispagestyle{empty}
+% HSMW logo
+\begin{tikzpicture}[remember picture,overlay,at=(current page.north east),anchor=north east]
+ \node[at=(current page.north east),inner sep=0pt]{\includegraphics[height=0.24\paperheight]{/home/julius/img/hsmw.png}};
+\end{tikzpicture}
+% SICIM logo
+\begin{tikzpicture}[remember picture,overlay,at=(current page.south east),anchor=south east]
+ \node[at=(current page.south east),inner sep=12pt]{\includegraphics[height=0.12\paperheight]{SICIM_Logo.png}};
+\end{tikzpicture}
+\color{hsmw}
+\vspace*{\fill}
+\vspace{1cm}
+\begin{flushleft}
+\Huge\textbf{\@title}\par
+\Large\textbf{\@stitle}\par
+\end{flushleft}
+\vspace*{\fill}
+\color{black}
+\normalsize{\@author}\par
+\end{frame}
+}
+\endinput
+\mode
+<all>
