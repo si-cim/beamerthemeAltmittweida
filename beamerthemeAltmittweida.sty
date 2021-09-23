@@ -20,6 +20,8 @@
 \renewcommand*{\@author}{author}
 \newcommand*{\group}[1]{\gdef\@group{#1}}
 \newcommand*{\@group}{group}
+\newif\ifesf
+\newcommand{\esf}{\esftrue}
 
 % Logo
 \addtobeamertemplate{frametitle}{}{%
@@ -34,6 +36,13 @@
 \renewcommand*{\titlepage}{%
 \begin{frame}[noframenumbering,plain]
 \thispagestyle{empty}
+
+\ifesf{% ESF logo
+\begin{tikzpicture}[remember picture,overlay,at=(current page.north west),anchor=north west]
+ \node[at=(current page.north west),inner sep=0pt]{\includegraphics[width=0.7\paperwidth]{esf.png}};
+\end{tikzpicture}}
+\fi
+
 % HSMW logo
 \begin{tikzpicture}[remember picture,overlay,at=(current page.north east),anchor=north east]
  \node[at=(current page.north east),inner sep=0pt]{\includegraphics[height=0.24\paperheight]{hsmw.png}};
