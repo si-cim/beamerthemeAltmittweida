@@ -20,6 +20,8 @@
 \renewcommand*{\@author}{author}
 \newcommand*{\group}[1]{\gdef\@group{#1}}
 \newcommand*{\@group}{group}
+\newcommand*{\cover}[1]{\gdef\@cover{#1}}
+% \newcommand*{\@cover}{cover image}
 \newif\ifesf
 \newcommand{\esf}{\esftrue}
 
@@ -53,14 +55,22 @@
 \end{tikzpicture}
 \color{hsmw}
 \vspace*{\fill}
-\vspace{1cm}
-\begin{flushleft}
-\Huge\textbf{\@title}\par
-\Large\textbf{\@stitle}\par
-\end{flushleft}
-\vspace*{\fill}
-\color{black}
-\normalsize{\@author}\par
+% \vspace{1cm}
+\begin{columns}
+  \begin{column}{0.6\textwidth}
+    \Huge\textbf{\@title}\par
+    \Large\textbf{\@stitle}\par
+    \vspace*{\fill}
+    \color{black}
+    \normalsize{\@author}\par
+  \end{column}
+  \hspace{-2cm}
+  \begin{column}{0.5\columnwidth}
+  \ifdefined\@cover{%
+  \includegraphics[width=1.1\columnwidth]{\@cover}}
+  \fi
+  \end{column}
+\end{columns}
 \end{frame}
 }
 \endinput
