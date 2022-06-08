@@ -55,4 +55,5 @@ The same example is available as the file `exmaple.tex`.
 
 ## TODO
 
-1. Use the HSMW blue for block titles
+1. ~Use the HSMW blue for block titles.~
+2. Add theme option to use the Ubuntu font.
